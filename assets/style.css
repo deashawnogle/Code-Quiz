@@ -1,0 +1,82 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    box-shadow: black;
+}
+.container {
+    margin-top: 10%;
+    width: 600px;
+    background-color: grey;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}
+
+#answer-buttons {
+    text-align: center;
+}
+
+button {
+    background-color: ivory;
+    font-weight: bold;
+    border: 3px solid;
+    border-radius: 5px;
+    padding: 3px 9px;
+    color: black;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+button:hover {
+    border-color: darkgrey;
+}
+.Control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-btn, .next-btn {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px 20px;
+
+}
+
+.hide {
+    display: none;
+}
+
+#end-quiz {
+    text-align: center;
+    color: black;
+    font-size: 35px;
+}
+
+#time {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+#question {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+#final-score {
+    margin-left: 5px 5px 5px 5px;
+}
+
