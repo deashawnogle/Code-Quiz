@@ -1,19 +1,48 @@
-const startButton = document.getElementById("start-btn");
-const questionContainerElement =document.getElementById('question-container')
+var startButton = document.getElementById("start-btn");
+var questionContainerElement = document.getElementById('question-container');
+var questionElement = document.getElementById('question');
+var answerButtonsElement = document.getElementById('answer-buttons');
 
-startButton.addEventListener('click', startGame)
+
+var question = [
+    {
+        question:'What is stand for HTML?',
+        anwsers: ['HyperText Markup Language', 'HyperText Making Language', 'HyperText Maden Language', 'High Text Markup Language'],
+        correct: 'HyperText Markup Language'
+    },
+    {
+        question:'What is stand for HTML?',
+        anwsers: ['HyperText Markup Language', 'HyperText Making Language', 'HyperText Maden Language', 'High Text Markup Language'],
+        correct: 'HyperText Markup Language'
+    },
+    {
+        question:'What is stand for HTML?',
+        anwsers: ['HyperText Markup Language', 'HyperText Making Language', 'HyperText Maden Language', 'High Text Markup Language'],
+        correct: 'HyperText Markup Language'
+    },
+    {
+        question:'What is stand for HTML?',
+        anwsers: ['HyperText Markup Language', 'HyperText Making Language', 'HyperText Maden Language', 'High Text Markup Language'],
+        correct: 'HyperText Markup Language'
+    }
+];
+
+var questionNum = questions.length;
+
+resetElement.classList.add('hide');
+startButton.addEventListener('click', startGame);
 
 function startGame() {
-    console.log('Started')
-    startButton.classList.add('hide')
-    questionContainerElement.classList.remove('hide')
+    console.log('Start');
+    startButton.classList.add('hide');
+    questionContainerElement.classList.remove('hide');
+    
+    var questionCount = 0;
+    generateQuestion(questionCount);
+
+    Timer();
 }
 
-function setNextQuestion() {
-
+function showQuestion(question) {
+    questionElement.innerText = question.question
 }
-
-function selectAnswer() {
-
-}
-
