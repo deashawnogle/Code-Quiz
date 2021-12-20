@@ -2,20 +2,22 @@ const startButton = document.getElementById("start-btn");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
-const resetElement = document.getElementById("reset");
 const timeElement = document.getElementById("time");
 const endQuiz = document.getElementById("end-quiz");
 const restartButton = document.getElementById("restart");
+const clearScoreButton = document.getElementById("clear-score");
+const finalscoreElement = document.querySelectorAll("#final-score");
 let highScore = [];
 const initial = document.getElementById("initial"); 
 const saveButton = document.getElementById("save-btn");
 const highScoreList = document.getElementById("highScoreList");
 const list = document.getElementById("list");
-const score = document.getElementById("final-score")
-// const score = timeRemaining;
-// const questionNum = question.length;
+const score = document.getElementById("final-score");
+
+let questionCount = 0;
 
 
+//highscore save on local storage
 if (localStorage.getItem("highScore")){
     highScore = JSON.parse(localStorage.getItem("highScore"))
 }
@@ -24,7 +26,6 @@ let timerId;
 
 let index = 0;
 
-resetElement.classList.add("hide");
 startButton.addEventListener("click", startGame);
 
 
@@ -42,7 +43,7 @@ function startGame() {
     startButton.classList.add("hide");
     questionContainerElement.classList.remove("hide");
     
-    var questionCount = 0;
+    let questionCount = 0;
     generateQuestion(questionCount);
 
     timerId = setInterval (timer, 1000);
@@ -74,21 +75,30 @@ const question = [
 
 let timeRemaining = question.length * 15
 
+
+//function for Timer
 function timer() {
     time.innerHTML = timeRemaining--
+        if (timeRemaining <= 0) {
+            time = 0;
+            timeElement.textContent = "Time Left: " + time;
+            endQuiz.classList.remove("hide");
+            questionContainerElement.classList.add("hide");
+            clearInterval(timerId);
+        }
 };
 
 //function for question generate
 function generateQuestion () {
     questionContainerElement.innerHTML = `<div id="question">${question[index].question}</div>
     <div id="answer-buttons">
-      <button class="btn">${question[index].anwsers[0]}</button>
-      <button class="btn">${question[index].anwsers[1]}</button>
-      <button class="btn">${question[index].anwsers[2]}</button>
-      <button class="btn">${question[index].anwsers[3]}</button>
+      <button class="btn" id="answer-btn">${question[index].anwsers[0]}</button>
+      <button class="btn" id="answer-btn">${question[index].anwsers[1]}</button>
+      <button class="btn" id="answer-btn">${question[index].anwsers[2]}</button>
+      <button class="btn" id="answer-btn">${question[index].anwsers[3]}</button>
     </div>`
 
-    let btnElement = document.querySelectorAll(".btn");
+    let btnElement = document.querySelectorAll("#answer-btn");
 
     //eventListnener to select correct or wrong answer
     for (let i = 0; i < btnElement.length; i++) {
@@ -98,8 +108,7 @@ function generateQuestion () {
 
                 if (this.innerHTML === question[index].correct) {
                     setTimeout(function(){
-                    console.log('correct!!')
-                    ,1000
+                    1000
                     })
                 } 
                 else  {
@@ -120,24 +129,29 @@ function generateQuestion () {
     }
 };
 
-//function for Highscore list
+//function for Highscore list, save on Local Storage
 saveButton.addEventListener("click", function(){
     highScore.push({
         initial: initial.value,
         score: timeRemaining
     })
-    localStorage.setItem("highScore", JSON.stringify(highScore))
-    highScoreList.classList.remove("hide")
-    endQuiz.classList.add("hide")
+    localStorage.setItem("highScore", JSON.stringify(highScore));
+    timeElement.textContent = "Final score :" + timeRemaining;
+    highScoreList.classList.remove("hide");
+    endQuiz.classList.add("hide");
+    restartButton.classList.remove("hide");
     showScores()
 });
 
 
-//function for End Game
-// function endQuiz() {
-//     clearInterval(timerInterval);
-//     questionContainerElement.classList.add("hide");
-//     resetElement.classList.remove("hide");
-//     restartButton.addEventListener("click");
+// Restart, Clear Score button
 
-// };
+restartButton.addEventListener("click",function(){
+    location.replace("index.html")
+});
+
+clearScoreButton.addEventListener("click", function(){
+    localStorage.clear();
+    location.replace("index.html");
+});
+
