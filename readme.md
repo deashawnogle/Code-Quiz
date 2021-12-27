@@ -1,6 +1,10 @@
-Code Quiz
+# Code Quiz
+
+-----------
 
 <img src="./assets/img/CodeQuiz.png">
+
+-----------
 
 About the HW : Code Multiple question for Quiz
 
