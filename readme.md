@@ -1,4 +1,6 @@
-Week 4 Homework
+Code Quiz
+
+![](img/Code Quiz.png)
 
 About the HW : Code Multiple question for Quiz
 
