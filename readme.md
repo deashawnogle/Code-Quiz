@@ -1,6 +1,6 @@
 Code Quiz
 
-![](img/Code Quiz.png)
+<img src="img/Code Quiz.png">
 
 About the HW : Code Multiple question for Quiz
 
