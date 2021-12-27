@@ -2,6 +2,8 @@
 
 -----------
 
+## Image Preview
+
 <img src="./assets/img/CodeQuiz.png">
 
 -----------
@@ -9,16 +11,17 @@
 About the HW : Code Multiple question for Quiz
 
 - HTML, CSS for styling Page
-- Javascript
-    -function
-    -object
-    -array
-    -For Loop
-    -IF Else
-    -time Interval
-    -JSon for Local Storage
++ Javascript
+    + function
+    + object
+    + array
+    + For Loop
+    + IF Else
+    + time Interval
+    + JSon for Local Storage
     
+-----------
 
-Public Link for Week 4 Homework
++ Public Link for Week 4 Homework (Code Quiz)
 
-https://deashawnogle.github.io/DaesangOgle-Homework-4/
+    + https://deashawnogle.github.io/DaesangOgle-Homework-4/
