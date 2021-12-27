@@ -1,6 +1,6 @@
 Code Quiz
 
-<img src="img/Code Quiz.png">
+<img src="img/CodeQuiz.png">
 
 About the HW : Code Multiple question for Quiz
 
